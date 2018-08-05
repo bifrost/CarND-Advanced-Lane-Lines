@@ -20,7 +20,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1a]: ./camera_cal/calibration17.jpg "Distorted"
-[image1b]: ./output_images/dist_correction_calibration.jpg "Undistorted"
+[image1b]: ./output_images/calibration_dist_correction.jpg "Undistorted"
 [image2]: ./test_images/test2.jpg "Road"
 [image2]: ./output_images/dist_correction_test2.jpg "Road Transformed"
 [image3]: ./output_images/binary_test2.jpg "Binary Example"
@@ -287,7 +287,14 @@ def annotate(img, left_line, right_line):
     putText(img, 'Vehicle is {0:.2f}m {1} of center'.format(abs(line_base_pos), leftRight), (50, 120))
 ```
 
-where `radius_of_curvature` is defined as `(left_line.radius_of_curvature + right_line.radius_of_curvature)/2` and `line_base_pos` is defined as `(left_line.line_base_pos + right_line.line_base_pos)/2 - left_line.line_base_pos`.
+where `radius_of_curvature` is defined as:
+```
+    (left_line.radius_of_curvature + right_line.radius_of_curvature)/2
+``` 
+and `line_base_pos` is defined as:
+```
+    (left_line.line_base_pos + right_line.line_base_pos)/2 - left_line.line_base_pos
+```
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
